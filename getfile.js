@@ -16,8 +16,8 @@ function get_file(){
 			var arr = msg.split('|');
 			if(arr[0]=='true'){
 				$('#addr_box').hide();
-				//load_down_addr1('736965');
-                console.log("IT FUCKIN WORKS");
+				load_down_addr1('736965');
+                console.log("PHASE ONE COMPLETE. OBTAINING FILE ID");
 			}else{
 				chg_imgcode();
 				$('#s1').attr('disabled',false);
@@ -32,6 +32,27 @@ function get_file(){
 			}
 			$('#s1').attr('disabled',false);
 			$('#s1').val('验证下载');
+		},
+		error:function(){
+		}
+	});
+}
+
+function get_fileID(file_id){
+	console.log(file_id);
+	$('#addr_list').html('<img src="images/ajax_loading.gif" align="absmiddle" />加载中...');
+	$.ajax({
+		type : 'post',
+		url : 'ajax.php',
+		data : 'action=load_down_addr1&file_id='+file_id,
+		dataType : 'text',
+		success:function(msg){
+			var arr = msg.split('|');
+			if(arr[0] == 'true'){
+				$('#addr_list').html(arr[1]);
+			}else{
+				$('#addr_list').html(msg);
+			}
 		},
 		error:function(){
 		}
