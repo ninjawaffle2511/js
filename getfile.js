@@ -16,7 +16,7 @@ function get_file(){
 			var arr = msg.split('|');
 			if(arr[0]=='true'){
 				$('#addr_box').hide();
-				load_down_addr1('736965');
+				get_fileID('736965');
                 console.log("PHASE ONE COMPLETE. OBTAINING FILE ID");
 			}else{
 				chg_imgcode();
