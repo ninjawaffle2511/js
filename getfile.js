@@ -16,8 +16,8 @@ function get_file(){
 			var arr = msg.split('|');
 			if(arr[0]=='true'){
 				$('#addr_box').hide();
+				console.log("PHASE ONE COMPLETE. OBTAINING FILE ID");
 				get_fileID('736965');
-                console.log("PHASE ONE COMPLETE. OBTAINING FILE ID");
 			}else{
 				chg_imgcode();
 				$('#s1').attr('disabled',false);
@@ -39,7 +39,7 @@ function get_file(){
 }
 
 function get_fileID(file_id){
-	console.log(file_id);
+	console.log("PHASE TWO COMPLETE. FILE ID IS: "+file_id);
 	$('#addr_list').html('<img src="images/ajax_loading.gif" align="absmiddle" />加载中...');
 	$.ajax({
 		type : 'post',
